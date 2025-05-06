@@ -71,6 +71,10 @@ select {
   background-size: cover;
 }
 
+.header-wrapper.blog {
+  background-image: url("../img/bg-banner-blog.jpg");
+}
+
 .header-wrapper .inner {
   display: flex;
   width: 100%;
@@ -307,18 +311,23 @@ h1.heading {
   border: 1px solid #0000000d;
 }
 
-.course-item:hover .thumb {
+.course-item:hover .thumb,
+.single-blog:hover .thumb {
   opacity: 0.8;
   transform: scale3d(1.1, 1.1, 1);
 }
 
-.course-item:hover .title a {
+.course-item:hover .title a,
+.single-blog:hover .title h2 a {
   color: var(--primary);
 }
 
 .course-item .thumb,
-.course-item .title a {
-  transition: all 0.3s ease-in-out;
+.single-blog .thumb,
+.course-item .title a,
+.single-blog .title h2 a,
+.single-blog .img {
+  transition: all 0.5s ease-in-out;
 }
 
 .course-item .thumb-wrapper {
@@ -327,7 +336,8 @@ h1.heading {
   overflow: hidden;
 }
 
-.course-item .thumb {
+.course-item .thumb,
+.single-blog .thumb {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -526,5 +536,194 @@ h1.heading {
   background: var(--primary);
   border-radius: 20px;
 }
-
 /* End footer */
+
+/* Start Blog */
+.single-blog {
+  display: flex;
+  flex-direction: column;
+}
+
+.single-blog:hover h2 {
+}
+
+.single-blog .title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.single-blog .title h2 a {
+  font-size: 2.6rem;
+  color: #000000b3;
+}
+
+.single-blog .title ul {
+  display: flex;
+  align-items: center;
+}
+
+.single-blog .title li + li::before {
+  content: "|";
+  padding: 0 8px;
+}
+
+.single-blog .img {
+  margin-block: 45px;
+  overflow: hidden;
+}
+
+.single-blog .img {
+  background-color: #783df0;
+}
+
+.single-blog p {
+  line-height: 1.5;
+  color: #000000b3;
+}
+
+.single-blog .read-more {
+  margin-top: 20px;
+  letter-spacing: 1.5;
+  color: #000000e6;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  transition: color 0.3s ease-in-out;
+}
+
+.single-blog .read-more:hover {
+  color: var(--secondary);
+}
+
+.single-blog + .single-blog {
+  margin-top: 90px;
+}
+
+.blog .sidebar form {
+  display: flex;
+  height: 40px;
+}
+
+.blog .sidebar input {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding-inline: 20px;
+}
+
+.blog .sidebar .search-btn {
+  width: 70px;
+  color: #fff;
+  font-size: 18px;
+  background: #783df0;
+  transition: background 0.3s ease-in-out;
+}
+
+.blog .sidebar .search-btn:hover {
+  background: var(--primary);
+}
+
+.recent-post,
+.category,
+.archive,
+.tags {
+  margin-top: 50px;
+}
+
+.recent-post .title,
+.category .title,
+.archive .title,
+.tags .title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000000b3;
+}
+
+.recent-post .list {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recent-post .list li {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+}
+
+.recent-post .list li .post a {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 24px;
+  color: #000000b3;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.category .menu {
+  border: none;
+}
+
+.category .menu a {
+  height: auto;
+}
+
+.category .menu a span {
+  display: block;
+  font-size: 1.7rem;
+  line-height: 55px;
+  padding-inline: 15px;
+}
+
+.archive .select {
+  margin-top: 35px;
+  display: block;
+  position: relative;
+}
+.archive #select-month {
+  width: 100%;
+  display: block;
+  font-weight: normal;
+  font-size: 1.6rem;
+  line-height: 58px;
+  color: #424242;
+  text-transform: capitalize;
+  background: #edecec;
+  padding-inline: 20px;
+  height: 58px;
+  outline: none;
+  border: none;
+  appearance: none;
+}
+
+.archive span {
+  position: absolute;
+  padding-right: 20px;
+  right: 0;
+  top: 40%;
+}
+
+.tags ul {
+  margin-top: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags ul li a {
+  display: inline-block;
+  line-height: 36px;
+  border: 1px solid #0000001a;
+  padding: 0 15px;
+  color: #000000cc;
+  transition: all 0.3s ease-in-out;
+}
+
+.tags ul li:hover a {
+  border: 1px solid var(--secondary);
+  color: var(--white);
+  background: var(--secondary);
+}
+/* End Blog */
